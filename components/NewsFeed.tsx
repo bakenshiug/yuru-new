@@ -6,7 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { MAIN_CATEGORIES, type NewsItem, type UserProfile } from "@/lib/types";
+import { MAIN_CATEGORIES, type NewsItem, type Tone, type UserProfile } from "@/lib/types";
+
+const TONE_STYLES: Record<Tone, string> = {
+  "ブラック": "bg-stone-900 text-stone-50 border-stone-900",
+  "ほっこり": "bg-rose-50 text-rose-800 border-rose-200",
+  "くだらない": "bg-amber-50 text-amber-800 border-amber-200",
+  "ツッコミ": "bg-sky-50 text-sky-800 border-sky-200",
+  "感動": "bg-emerald-50 text-emerald-800 border-emerald-200",
+};
 import { loadProfile, clearProfile, isUninterested } from "@/lib/profile";
 import { Onboarding } from "@/components/Onboarding";
 
@@ -39,7 +47,14 @@ function NewsCard({ item }: { item: NewsItem }) {
           {item.body}
         </p>
         <div className="flex items-center justify-between pt-3 border-t border-stone-200">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
+            {item.tone && (
+              <span
+                className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold font-[family-name:var(--font-sans-jp)] border rounded-sm ${TONE_STYLES[item.tone]}`}
+              >
+                {item.tone}
+              </span>
+            )}
             <Badge variant="outline" className="border-stone-400 text-stone-600 font-[family-name:var(--font-sans-jp)] text-[10px]">
               ゆるスコア {item.yuruScore}
             </Badge>

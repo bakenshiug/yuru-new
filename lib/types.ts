@@ -11,6 +11,16 @@ export const MAIN_CATEGORIES = [
 
 export type MainCategory = (typeof MAIN_CATEGORIES)[number];
 
+export const TONES = [
+  "ブラック",
+  "ほっこり",
+  "くだらない",
+  "ツッコミ",
+  "感動",
+] as const;
+
+export type Tone = (typeof TONES)[number];
+
 export interface NewsItem {
   id: string;
   headline: string;
@@ -18,6 +28,7 @@ export interface NewsItem {
   yuruScore: number;
   category: string;
   mainCategory: MainCategory;
+  tone?: Tone;
   source?: string;
   sourceUrl?: string;
   publishedAt: string;
