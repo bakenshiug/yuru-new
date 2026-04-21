@@ -29,8 +29,22 @@ export default function Home() {
         <NewsFeed />
       </main>
       <footer className="border-t border-stone-300 mt-16 py-6">
-        <div className="max-w-3xl mx-auto px-6 text-center text-[10px] text-stone-500 font-[family-name:var(--font-sans-jp)] tracking-wider">
-          © 2026 ゆるニュー電子版 / 無駄を愛するすべての人へ
+        <div className="max-w-3xl mx-auto px-6 text-center space-y-2">
+          <p className="text-[11px] text-stone-600 font-[family-name:var(--font-sans-jp)]">
+            <a
+              href="https://x.com/yuru_new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-stone-900 transition-colors"
+            >
+              @yuru_new
+            </a>
+            <span className="text-stone-400 mx-2">·</span>
+            <span>毎日3回、どうでもいいニュース配信中</span>
+          </p>
+          <p className="text-[10px] text-stone-400 font-[family-name:var(--font-sans-jp)] tracking-wider">
+            © 2026 ゆるニュー電子版 / 無駄を愛するすべての人へ
+          </p>
         </div>
       </footer>
     </div>
